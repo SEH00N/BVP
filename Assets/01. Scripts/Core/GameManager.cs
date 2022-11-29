@@ -11,4 +11,12 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
+
+    private void Awake()
+    {
+        if(instance != null) { Debug.LogWarning("Multiple gameManager instance is running, destroy this"); Destroy(gameObject); }
+
+        instance = this;
+        DontDestroyOnLoad(transform.root.gameObject);
+    }
 }

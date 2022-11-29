@@ -32,6 +32,7 @@ public class DataManager : MonoBehaviour
         userSetting = InitialData<UserSetting>();
     }
 
+    #region 에디터용
     private void OnDestroy()
     {
         if(instance != this)
@@ -39,12 +40,17 @@ public class DataManager : MonoBehaviour
 
         SaveData<UserSetting>(userSetting);
     }
+    #endregion
 
-    private void OnApplicationQuit()
-    {
-        if(instance != this)
-            return;
-    }
+    #region 빌드용
+    // private void OnApplicationQuit()
+    // {
+    //     if(instance != this)
+    //         return;
+
+    //     SaveData<UserSetting>(userSetting);
+    // }
+    #endregion
 
     private T InitialData<T>() where T : Data, new()
     {
