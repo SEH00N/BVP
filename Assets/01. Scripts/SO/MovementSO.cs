@@ -6,4 +6,6 @@ public class MovementSO : ScriptableObject
     [Range(0f, 30f)] public float inAccel;
     [Range(0f, 30f)] public float deAccel;
     [Range(0f, 30f)] public float maxSpeed;
+    [Range(0f, 30f)] public float jumpSpeed;
+    public Vector2 gravityClamp;
 }

@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System;
 using UnityEngine;
 
@@ -20,11 +21,15 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = currentDir * currentVelocity;
+        Vector3 dir = currentDir * currentVelocity;
+        dir.y = Mathf.Clamp(rb.velocity.y, movementSO.gravityClamp.x, movementSO.gravityClamp.y);
+        rb.velocity = dir;
     }
 
+    public void DoJump() => rb.AddForce(Vector3.up * movementSO.jumpSpeed, ForceMode.Impulse);
+
     public void MoveTo(Vector3 input)
-    {   
+    {
         input = input.normalized;
         Vector2 inputPlaneVector = new Vector2(input.x, input.z);
 
