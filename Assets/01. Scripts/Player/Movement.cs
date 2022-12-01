@@ -21,7 +21,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 dir = currentDir * currentVelocity;
+        Vector3 dir = ((currentDir.x * transform.right) + (currentDir.z * transform.forward)) * currentVelocity;
+
         dir.y = Mathf.Clamp(rb.velocity.y, movementSO.gravityClamp.x, movementSO.gravityClamp.y);
         rb.velocity = dir;
     }

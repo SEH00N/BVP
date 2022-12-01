@@ -3,17 +3,27 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private Movement movement = null;
-    public bool a = false;
+    private PlayerRotator rotator = null;
 
     private void Awake()
     {
         movement = GetComponent<Movement>();
+        rotator = GetComponent<PlayerRotator>();
     }
 
     private void Update()
     {
         MovementInput();
         JumpInput();
+        RotateInput();
+    }
+
+    private void RotateInput()
+    {
+        float x = Input.GetAxis("Mouse Y");
+        float y = Input.GetAxis("Mouse X");
+
+        rotator.RotateTo(new Vector2(x, y));
     }
 
     private void JumpInput()
@@ -27,9 +37,6 @@ public class PlayerInput : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        if(a)
-            transform.Translate(new Vector3(horizontal, 0, vertical) * Time.deltaTime * 10f);
-        else
-            movement.MoveTo(new Vector3(horizontal, 0, vertical));
+        movement.MoveTo(new Vector3(horizontal, 0, vertical));
     }
 }
