@@ -1,11 +1,10 @@
-using System.Security.Cryptography.X509Certificates;
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     [SerializeField] MovementSO movementSO;
+    [SerializeField] float rayDistance = 1.2f;
 
     private Rigidbody rb = null;
 
@@ -13,6 +12,8 @@ public class Movement : MonoBehaviour
 
     private Vector3 currentDir = Vector3.zero;
     private Vector2 CurrentPlaneVector => new Vector2(currentDir.x, currentDir.z);
+
+    private int currentJumpCount = 0;
 
     private void Awake()
     {
@@ -27,7 +28,19 @@ public class Movement : MonoBehaviour
         rb.velocity = dir;
     }
 
-    public void DoJump() => rb.AddForce(Vector3.up * movementSO.jumpSpeed, ForceMode.Impulse);
+    public void DoJump()
+    {
+        if(movementSO.maxJumpCount == 0) return;
+
+        if(IsGround())
+            currentJumpCount = 0;
+        else if(++currentJumpCount >= movementSO.maxJumpCount)
+           return;
+
+        rb.AddForce(Vector3.up * movementSO.jumpSpeed, ForceMode.Impulse);
+    }
+
+    private bool IsGround() => Physics.Raycast(transform.position, Vector3.down, rayDistance, DEFINE.GroundLayer);
 
     public void MoveTo(Vector3 input)
     {
