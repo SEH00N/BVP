@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(transform.root.gameObject);
     }
 
+    private void Start()
+    {
+        CursorActive = false;
+    }
+
     private void Update()
     {
         if(Input.GetKey(KeyCode.LeftAlt))

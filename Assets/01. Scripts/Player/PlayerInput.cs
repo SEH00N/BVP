@@ -22,8 +22,9 @@ public class PlayerInput : MonoBehaviour
     {
         float x = Input.GetAxis("Mouse Y");
         float y = Input.GetAxis("Mouse X");
-
-        rotator.RotateTo(new Vector2(x, y));
+        
+        rotator.HeadRotateTo(x);
+        rotator.BodyRotateTo(y);
     }
 
     private void JumpInput()
