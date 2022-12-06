@@ -16,5 +16,5 @@ MonoBehaviour:
   deAccel: 15
   maxSpeed: 10
   jumpSpeed: 5
-  maxJumpCount: 5
+  maxJumpCount: 2
   gravityClamp: {x: -50, y: 50}
