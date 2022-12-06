@@ -30262,6 +30262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ac748db657e484caeede349ce05ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillArchive: {fileID: 0}
 --- !u!1001 &1345183887
 PrefabInstance:
   m_ObjectHideFlags: 0
