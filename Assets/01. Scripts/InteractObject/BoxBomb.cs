@@ -18,6 +18,16 @@ public class BoxBomb : PoolableMono, IDamageable
         callback?.Invoke();
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Boss"))
+        {
+            Debug.Log("보스 맞췄다");
+            //펑 이펙트
+            PoolManager.Instance.Push(this);
+        }
+    }
+
     public override void Reset()
     {
         if(rb == null)
