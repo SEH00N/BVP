@@ -31992,8 +31992,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858173248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.830002, y: -7.7300005, z: 32.15}
-  m_LocalScale: {x: 0.3, y: 5, z: 1}
+  m_LocalPosition: {x: 0.53, y: 0.48, z: 0.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 941556232}
@@ -32019,7 +32019,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858173248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32655,8 +32655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4924565b66cef16499574603b3ef9cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpEffect: {fileID: 2092463966}
-  onJump: 0
 --- !u!1 &946227382
 GameObject:
   m_ObjectHideFlags: 0

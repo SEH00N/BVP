@@ -27,10 +27,9 @@ public class PlayerInput : MonoBehaviour
         rotator.BodyRotateTo(y);
     }
 
-    [SerializeField] bool onJump = false;
     private void JumpInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !onJump)
+        if(Input.GetKeyDown(KeyCode.Space))
             movement.DoJump();
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : Weapon
 {
     [SerializeField] float startDelay, duration;
-    [SerializeField] List<Collider> colliders = new List<Collider>();
+    [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
 
     private bool onDetermination = false;
 
@@ -32,9 +32,10 @@ public class Sword : Weapon
     {
         List<IDamageable> ids = new List<IDamageable>();
 
-        foreach(Collider c in colliders)
+        foreach(BoxCollider c in colliders)
         {
-            foreach(Collider cc in Physics.OverlapBox(c.bounds.center, c.bounds.size / 2f, transform.rotation))
+            Debug.Log(c.size);
+            foreach(Collider cc in Physics.OverlapBox(c.bounds.center, c.size, c.transform.rotation))
             {
                 if(cc.TryGetComponent<IDamageable>(out IDamageable id))
                 {
@@ -46,5 +47,11 @@ public class Sword : Weapon
                 }
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 }
