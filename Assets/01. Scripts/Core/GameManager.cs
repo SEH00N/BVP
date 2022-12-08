@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CursorActive = false;
+        CursorActive = cursorActive;
     }
 
     private void Update()
