@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -28,7 +29,7 @@ public class Movement : MonoBehaviour
         rb.velocity = dir;
     }
 
-    public void DoJump()
+    public void DoJump(Action callback = null)
     {
         if(movementSO.maxJumpCount == 0) return;
 
@@ -38,6 +39,7 @@ public class Movement : MonoBehaviour
            return;
 
         rb.AddForce(Vector3.up * movementSO.jumpSpeed, ForceMode.Impulse);
+        callback?.Invoke();
     }
 
     private bool IsGround() => Physics.Raycast(transform.position, Vector3.down, rayDistance, DEFINE.GroundLayer);

@@ -1,7 +1,11 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] GameObject jumpEffect = null;
+
     private Movement movement = null;
     private PlayerRotator rotator = null;
 
@@ -22,14 +26,26 @@ public class PlayerInput : MonoBehaviour
     {
         float x = Input.GetAxis("Mouse Y");
         float y = Input.GetAxis("Mouse X");
-
-        rotator.RotateTo(new Vector2(x, y));
+        
+        rotator.HeadRotateTo(x);
+        rotator.BodyRotateTo(y);
     }
 
+    [SerializeField] bool onJump = false;
     private void JumpInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-            movement.DoJump();
+        if(Input.GetKeyDown(KeyCode.Space) && !onJump)
+        {
+            movement.DoJump(() => {
+                onJump = true;
+                jumpEffect.SetActive(true);
+                jumpEffect.transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.Linear).OnComplete(() => {
+                    jumpEffect.SetActive(false);
+                    jumpEffect.transform.localScale = Vector3.one;
+                    onJump = false;
+                });
+            });
+        }
     }
 
     private void MovementInput()
