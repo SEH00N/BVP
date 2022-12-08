@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
         rb.velocity = dir;
     }
 
-    public void DoJump(Action callback = null)
+    public void DoJump()
     {
         if(movementSO.maxJumpCount == 0) return;
 
@@ -39,7 +39,6 @@ public class Movement : MonoBehaviour
            return;
 
         rb.AddForce(Vector3.up * movementSO.jumpSpeed, ForceMode.Impulse);
-        callback?.Invoke();
     }
 
     private bool IsGround() => Physics.Raycast(transform.position, Vector3.down, rayDistance, DEFINE.GroundLayer);
