@@ -14,4 +14,14 @@ public class DEFINE
             return staticCanvas;
         }
     }
+
+    private static Transform player = null;
+    public static Transform Player {
+        get {
+            if(player == null)
+                player = GameObject.Find("Player").transform;
+
+            return player;
+        }
+    }
 }

@@ -32,5 +32,7 @@ public class BoxBomb : PoolableMono, IDamageable
     {
         if(rb == null)
             rb = GetComponent<Rigidbody>();
+
+        rb.velocity = Vector3.zero;
     }
 }

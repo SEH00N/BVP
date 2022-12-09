@@ -7,12 +7,19 @@ public class Sword : Weapon
     [SerializeField] float startDelay, duration;
     [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
 
+    private Animator animator = null;
     private bool onDetermination = false;
+
+    private void Awake()
+    {
+        animator = transform.root.GetComponent<Animator>();
+    }
 
     public override void ActiveWeapon()
     {
         if(onDetermination) return;
 
+        animator.SetTrigger("OnSlash");
         StartCoroutine(DeterminateCoroutine(startDelay, duration));
     }
 
@@ -47,11 +54,5 @@ public class Sword : Weapon
                 }
             }
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 }

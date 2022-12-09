@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         if(instance != null) { Debug.LogWarning("Multiple gameManager instance is running, destroy this"); Destroy(gameObject); }
 
         instance = this;
-        DontDestroyOnLoad(transform.root.gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -41,5 +41,11 @@ public class GameManager : MonoBehaviour
             if(Input.GetKey(KeyCode.LeftShift))
                 if(Input.GetKeyDown(KeyCode.Comma))
                     CursorActive = !CursorActive;
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            PoolableMono temp = PoolManager.Instance.Pop("Bomb");
+            temp.transform.position = DEFINE.Player.position + DEFINE.Player.forward * 5f;
+        }
     }
 }
