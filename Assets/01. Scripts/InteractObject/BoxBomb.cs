@@ -4,7 +4,10 @@ using UnityEngine;
 public class BoxBomb : PoolableMono, IDamageable
 {
     [SerializeField] float moveSpeed = 10f;
+    [Range(0f, 1f)] float groggyPercent = 0.3f;
     private Rigidbody rb = null;
+
+    private BossProperty bossProperty = null;
 
     private void Awake() //테스트 용도
     {
@@ -22,8 +25,10 @@ public class BoxBomb : PoolableMono, IDamageable
     {
         if(other.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("보스 맞췄다");
-            //펑 이펙트
+            if(bossProperty == null)
+                bossProperty = other.transform.root.GetComponent<BossProperty>();
+            bossProperty.GroggyPercentage += groggyPercent;
+
             PoolManager.Instance.Push(this);
         }
     }

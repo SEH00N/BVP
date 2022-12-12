@@ -7,7 +7,7 @@ public abstract class AIDecision : MonoBehaviour
     
     protected virtual void Awake()
     {
-        brain = transform.parent.parent.parent.GetComponent<AIBrain>();
+        brain = transform.root.GetComponent<AIBrain>();
     }
 
     public abstract bool MakeDecision(); //확인할 조건

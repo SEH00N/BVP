@@ -1,20 +1,19 @@
+using System;
 using UnityEngine;
 
 public class IdleAction : AIAction
 {
-    private Material material = null;
+    private Rigidbody rb = null;
 
     protected override void Awake()
     {
         base.Awake();
 
-        material = transform.parent.parent.GetComponent<MeshRenderer>().material;
+        rb = transform.root.GetComponent<Rigidbody>();
     }
 
     public override void TakeAction()
     {
-        brain.MoveTo(transform.position);
-
-        material.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+        rb.velocity = Vector3.zero;
     }
 }
