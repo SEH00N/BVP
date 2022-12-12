@@ -6,7 +6,7 @@ public abstract class AIAction : MonoBehaviour
 
     protected virtual void Awake()
     {
-        brain = transform.parent.parent.GetComponent<AIBrain>();
+        brain = transform.root.GetComponent<AIBrain>();
     }
     
     public abstract void TakeAction();

@@ -14,7 +14,7 @@ public class ChaseAction : AIAction
 
     public override void TakeAction()
     {
-        brain.MoveTo(target.position);
+        // brain.MoveTo(target.position);
 
         material.color = Color.red;
     }

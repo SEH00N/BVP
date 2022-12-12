@@ -24,6 +24,8 @@ public class AIState : MonoBehaviour
 
             foreach(AIDecision decision in transition.decisions) //다른 상태로 넘어갈 수 있는 조건 확인
             {
+                if(decision == null) continue;
+
                 result = decision.MakeDecision();
                 if(!result) break;
             }
