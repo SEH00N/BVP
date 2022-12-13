@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
+  groggyPercent: 0.5
 --- !u!33 &7932870028371308024
 MeshFilter:
   m_ObjectHideFlags: 0

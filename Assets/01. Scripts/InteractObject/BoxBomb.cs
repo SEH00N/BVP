@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class BoxBomb : PoolableMono, IDamageable
 {
+    [SerializeField] float damage = 10f;
     [SerializeField] float moveSpeed = 10f;
-    [Range(0f, 1f)] float groggyPercent = 0.3f;
+    [Range(0f, 1f), SerializeField] float groggyPercent = 0.3f;
     private Rigidbody rb = null;
 
     private BossProperty bossProperty = null;
@@ -23,14 +24,22 @@ public class BoxBomb : PoolableMono, IDamageable
 
     private void OnCollisionEnter(Collision other)
     {
+        if(other.gameObject.layer == 7)
+            return;
+
         if(other.gameObject.CompareTag("Boss"))
         {
             if(bossProperty == null)
                 bossProperty = other.transform.root.GetComponent<BossProperty>();
             bossProperty.GroggyPercentage += groggyPercent;
-
-            PoolManager.Instance.Push(this);
         }
+        else if(other.gameObject.CompareTag("Player"))
+        {
+            if(other.gameObject.TryGetComponent<IDamageable>(out IDamageable id))
+                id.OnDamage(damage);
+        }
+
+        PoolManager.Instance.Push(this);
     }
 
     public override void Reset()

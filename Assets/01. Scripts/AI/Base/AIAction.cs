@@ -6,8 +6,14 @@ public abstract class AIAction : MonoBehaviour
 
     protected virtual void Awake()
     {
-        brain = transform.root.GetComponent<AIBrain>();
+        brain = transform.parent.parent.GetComponent<AIBrain>();
     }
     
-    public abstract void TakeAction();
+    /// <summary>
+    /// Action to take when in current state
+    /// <br>
+    ///     (Function called on every frame when in current state)
+    /// </br>
+    /// </summary>
+    public abstract void TakeAction(); 
 }

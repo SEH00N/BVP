@@ -57,6 +57,24 @@ public class PoolManager : MonoBehaviour
         return obj;
     }
 
+    public PoolableMono Pop(PoolableMono prefab)
+    {
+        PoolableMono obj = null;
+
+        if(!Pools.ContainsKey(prefab.name))
+        {
+            Debug.LogWarning($"{prefab.name} | Current Name of Poolable Object Doesn't Exist at Pools, Returning Nulll");
+            return null;
+        }
+
+        obj = Pools[prefab.name].Pop();
+        obj.transform.SetParent(null);
+        SceneLoader.Instance.RemoveDontDestroyOnLoad(obj.gameObject);
+        obj.Reset();
+        
+        return obj;
+    }
+
     public PoolableMono Pop(string _prefabName, Vector3 position, Quaternion rotation)
     {
         PoolableMono obj = null;

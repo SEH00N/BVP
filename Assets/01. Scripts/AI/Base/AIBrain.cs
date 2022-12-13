@@ -1,11 +1,8 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class AIBrain : MonoBehaviour
 {
     [SerializeField] AIState currentState = null;
-    
-    public bool onGroggy = false;
 
     private void Start()
     {
@@ -14,8 +11,6 @@ public class AIBrain : MonoBehaviour
 
     private void Update()
     {
-        if(onGroggy) return;
-
         currentState.UpdateState(); //상태 업데이트
     }
 

@@ -11,7 +11,11 @@ public class LimitOfDeg : AIDecision
     {
         FieldInfo field = typeof(Vector3).GetField(axis.ToString().ToLower());
         float degOfAxis = (float)(field.GetValue(targetObject.eulerAngles));
+        bool returnValue = degOfAxis >= limitOfDeg;
 
-        return degOfAxis >= limitOfDeg;
+        if(returnValue)
+            targetObject.eulerAngles = Vector3.zero;
+
+        return returnValue;
     }
 }
