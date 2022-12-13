@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Sword : Weapon
 {
     [SerializeField] float startDelay, duration;
     [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
 
+    private Transform player = null;
+    private Transform head = null;
     private Animator animator = null;
     private bool onDetermination = false;
 
     private void Awake()
     {
         animator = transform.root.GetComponent<Animator>();
+        player = transform.root;
+        head = player.Find("Head");
     }
 
     public override void ActiveWeapon()
@@ -41,7 +46,6 @@ public class Sword : Weapon
 
         foreach(BoxCollider c in colliders)
         {
-            Debug.Log(c.size);
             foreach(Collider cc in Physics.OverlapBox(c.bounds.center, c.size, c.transform.rotation))
             {
                 if(cc.TryGetComponent<IDamageable>(out IDamageable id))
@@ -49,7 +53,7 @@ public class Sword : Weapon
                     if(!ids.Contains(id))
                     {
                         ids.Add(id);
-                        id.OnDamage(weaponSO.damage, c.transform.position);
+                        id.OnDamage(weaponSO.damage, cc.transform.position - DEFINE.MainCam.transform.forward);
                     }
                 }
             }

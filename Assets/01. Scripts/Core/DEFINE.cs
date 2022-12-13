@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class DEFINE
@@ -15,6 +16,16 @@ public class DEFINE
         }
     }
 
+    private static Transform mainCanvas = null;
+    public static Transform MainCanvas {
+        get {
+            if(mainCanvas == null)
+                mainCanvas = GameObject.Find("MainCanvas").transform;
+
+            return mainCanvas;
+        }
+    }
+
     private static Transform player = null;
     public static Transform Player {
         get {
@@ -22,6 +33,26 @@ public class DEFINE
                 player = GameObject.Find("Player").transform;
 
             return player;
+        }
+    }
+
+    private static Camera mainCam = null;
+    public static Camera MainCam {
+        get {
+            if(mainCam == null)
+                mainCam = Camera.main;
+
+            return mainCam;
+        }
+    }
+
+    private static CinemachineVirtualCamera cmMainCam = null;
+    public static CinemachineVirtualCamera CmMainCam  {
+        get {
+            if(cmMainCam == null)
+                cmMainCam = GameObject.Find("CmMainCam").GetComponent<CinemachineVirtualCamera>();
+
+            return cmMainCam;
         }
     }
 }
