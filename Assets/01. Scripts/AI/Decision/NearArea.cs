@@ -17,6 +17,12 @@ public class NearArea : AIDecision
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distance);
+
+        if(target == null)
+            return;
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, target.position);
     }
     #endif
 }
