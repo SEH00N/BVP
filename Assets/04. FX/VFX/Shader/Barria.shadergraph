@@ -4,15 +4,6 @@
     "m_ObjectId": "7a2500129d6042c780d5681fea27828e",
     "m_Properties": [
         {
-            "m_Id": "8a336a85380a428bb333166c450ab355"
-        },
-        {
-            "m_Id": "5abd759325904842a05cf0a7529c9dcb"
-        },
-        {
-            "m_Id": "8f2cd7a790694f2b83dfb3d100a44463"
-        },
-        {
             "m_Id": "4e2cd5db21ca4e83b068dae148309e48"
         },
         {
@@ -29,12 +20,6 @@
         },
         {
             "m_Id": "c09daf73c6524bd186435c5d0771fb3b"
-        },
-        {
-            "m_Id": "11add94863054c9f8224ee04339707fd"
-        },
-        {
-            "m_Id": "426ae4e7615444d6b6ecb68dc99bc011"
         }
     ],
     "m_Keywords": [],
@@ -706,33 +691,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "11add94863054c9f8224ee04339707fd",
-    "m_Guid": {
-        "m_GuidSerialized": "4a73d8d8-5d16-4138-8dc3-9b50b6ea6042"
-    },
-    "m_Name": "Size",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Size",
-    "m_DefaultReferenceName": "_Size",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "126792eeb5c349979091c3e005620372",
@@ -1258,33 +1216,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
-    "m_ObjectId": "426ae4e7615444d6b6ecb68dc99bc011",
-    "m_Guid": {
-        "m_GuidSerialized": "881e77a4-f3bf-401a-8943-38e5605eb65d"
-    },
-    "m_Name": "Vector2",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Vector2",
-    "m_DefaultReferenceName": "_Vector2",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "x": -5.0,
-        "y": 5.0,
-        "z": 0.0,
-        "w": 0.0
-    }
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "431967ef72c74272addc6aa80a3214dd",
@@ -1561,33 +1492,6 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
-    "m_ObjectId": "5abd759325904842a05cf0a7529c9dcb",
-    "m_Guid": {
-        "m_GuidSerialized": "163da8a1-0c7b-4761-802b-b6b233f33635"
-    },
-    "m_Name": "DotTilling",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DotTilling",
-    "m_DefaultReferenceName": "_DotTilling",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "x": 1.5700000524520875,
-        "y": 1.0,
         "z": 0.0,
         "w": 0.0
     }
@@ -2057,33 +1961,6 @@
 }
 
 {
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "8a336a85380a428bb333166c450ab355",
-    "m_Guid": {
-        "m_GuidSerialized": "22433354-fc7a-4e83-82cd-bb03585ea87f"
-    },
-    "m_Name": "DotSize",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DotSize",
-    "m_DefaultReferenceName": "_DotSize",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.800000011920929,
-    "m_FloatType": 1,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
-}
-
-{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "8b9069047c2e4696bde2be520dced76d",
@@ -2162,33 +2039,6 @@
         "w": 0.0
     },
     "m_Labels": []
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "8f2cd7a790694f2b83dfb3d100a44463",
-    "m_Guid": {
-        "m_GuidSerialized": "24feea09-0c99-4b7e-8422-351a6f96b1f4"
-    },
-    "m_Name": "DotNoiseScale",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DotNoiseScale",
-    "m_DefaultReferenceName": "_DotNoiseScale",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 58.099998474121097,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
 }
 
 {
@@ -3089,15 +2939,6 @@
     "m_Name": "",
     "m_ChildObjectList": [
         {
-            "m_Id": "8a336a85380a428bb333166c450ab355"
-        },
-        {
-            "m_Id": "5abd759325904842a05cf0a7529c9dcb"
-        },
-        {
-            "m_Id": "8f2cd7a790694f2b83dfb3d100a44463"
-        },
-        {
             "m_Id": "4e2cd5db21ca4e83b068dae148309e48"
         },
         {
@@ -3114,12 +2955,6 @@
         },
         {
             "m_Id": "c09daf73c6524bd186435c5d0771fb3b"
-        },
-        {
-            "m_Id": "11add94863054c9f8224ee04339707fd"
-        },
-        {
-            "m_Id": "426ae4e7615444d6b6ecb68dc99bc011"
         }
     ]
 }
