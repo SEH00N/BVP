@@ -40,8 +40,9 @@ public class Projectile : PoolableMono
         PoolManager.Instance.Push(this);
     }
 
-    public void Init(Vector3 dir)
+    public void Init(Vector3 position, Vector3 dir)
     {
+        transform.position = position;
         transform.forward = dir.normalized;
     }
 }
