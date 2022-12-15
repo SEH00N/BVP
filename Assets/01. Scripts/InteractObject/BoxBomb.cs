@@ -10,10 +10,9 @@ public class BoxBomb : PoolableMono, IDamageable
 
     private BossProperty bossProperty = null;
 
-    private void Awake() //테스트 용도
-    {
-        Reset();
-    }
+    public float CurrentHp { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    public float MaxhHp => throw new NotImplementedException();
 
     public void OnDamage(float damage, Vector3 hitPos, Action callback = null)
     {

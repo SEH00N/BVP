@@ -34428,7 +34428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decisions:
   - {fileID: 1325053758}
-  positiveResult: {fileID: 0}
+  positiveResult: {fileID: 1951359671}
   negativeResult: {fileID: 0}
 --- !u!1 &1337209728
 GameObject:
@@ -50187,7 +50187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c8cf911149b4f4987bd28057a8964b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 20
+  distance: 30
   target: {fileID: 941556232}
 --- !u!114 &1545103093
 MonoBehaviour:
@@ -51514,6 +51514,8 @@ MonoBehaviour:
   target: {fileID: 941556232}
   firePos: {fileID: 1702130238}
   fireDelay: 1
+  currentTimer: 0
+  stopSlip: 2
 --- !u!114 &1951359671
 MonoBehaviour:
   m_ObjectHideFlags: 0
