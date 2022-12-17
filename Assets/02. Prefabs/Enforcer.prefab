@@ -1134,7 +1134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8083367384332623560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.4, y: -0.0000019073486, z: 41.1}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1188,6 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591e9e93934c910418f4714ae3add887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnYDistance: -1
 --- !u!114 &8083367384339885324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,7 +1209,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8083367384332623560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

@@ -1,19 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Grunt : PoolableMono
 {
-    private GruntHealth health = null;
-    public GruntHealth Heath => health;
+    [SerializeField] float spawnYDistance = 5f;
 
-    private void Awake()
-    {
-        health = GetComponent<GruntHealth>();
+    private GruntHealth health = null;
+    public GruntHealth Health {
+        get {
+            if(health == null)
+                health = GetComponent<GruntHealth>();
+            return health;
+        }
     }
+
+    private NavMeshAgent nav = null;
 
     public override void Reset()
     {
-        health.CurrentHp = health.MaxhHp;
+        Health.CurrentHp = Health.MaxhHp;
+
+    }   
+
+    public void Init(Vector3 position)
+    {
+        position.y += spawnYDistance;
+        transform.position = position;
+
+        if(nav == null) 
+        {
+            nav = GetComponent<NavMeshAgent>();
+            nav.enabled = true;
+        }
     }
 }

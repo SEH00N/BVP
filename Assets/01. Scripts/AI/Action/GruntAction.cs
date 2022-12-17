@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GruntAction : AIAction
 {
+    [SerializeField] bool gruntOnly = true;
+
+    [Space(10f)]
     [SerializeField] List<PoolableMono> grunts = new List<PoolableMono>();
 
     [Header("Spawn Property")]
@@ -38,12 +41,17 @@ public class GruntAction : AIAction
     {
         Vector3 spawnPos = GetRandomPos();
 
-        PoolableMono grunt = grunts[Random.Range(0, grunts.Count)];
-        if(grunt == null)
+        PoolableMono temp = grunts[Random.Range(0, grunts.Count)];
+        if(temp == null)
             return;
 
-        grunt = PoolManager.Instance.Pop(grunt);
-        grunt.transform.position = spawnPos;
+        if(gruntOnly)
+        {
+            Grunt grunt = PoolManager.Instance.Pop(temp) as Grunt;
+            grunt.Init(spawnPos);
+        }
+        else
+            PoolManager.Instance.Pop(temp).transform.position = spawnPos;
     }
 
     private Vector3 GetRandomPos()
