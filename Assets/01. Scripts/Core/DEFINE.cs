@@ -4,6 +4,7 @@ using UnityEngine;
 public class DEFINE
 {
     public const int GroundLayer = 1 << 6;
+    public const int PlayerLayer = 1 << 8;
     
     //Dont Destroy On Load 걸려있는 캔버스 (로딩 패널 같은 놈 집어넣는 용도)
     private static Transform staticCanvas = null;
