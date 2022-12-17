@@ -329,7 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  target: {fileID: 1343862215}
+  sphereColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &18533993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41152,7 +41153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  target: {fileID: 1343862215}
+  sphereColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &999827698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69855,7 +69857,7 @@ MonoBehaviour:
   poolingList:
   - {fileID: 7932870028371308022, guid: 99664e71dcfc8924cafc7ffceec9dcd0, type: 3}
   - {fileID: 7100200244526144212, guid: 6c81220efbcb0e34686922b460d58b43, type: 3}
-  - {fileID: 8515560696940875271, guid: 93392865136cf54478815b7f128fd205, type: 3}
+  - {fileID: 8083367384339885326, guid: 93392865136cf54478815b7f128fd205, type: 3}
   - {fileID: 5785365351926433484, guid: aab294bbed47f514f9861b0a48db5f95, type: 3}
 --- !u!114 &1539914122
 MonoBehaviour:
@@ -76336,7 +76338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  target: {fileID: 1343862215}
+  sphereColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1767426698
 MonoBehaviour:
   m_ObjectHideFlags: 0

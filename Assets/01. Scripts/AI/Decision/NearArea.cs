@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class NearArea : AIDecision
 {
-    [Range(0f, 50f)] public float distance = 10f;
-    public Transform target = null;
+    [SerializeField, Range(0f, 50f)] float distance = 10f;
+    private Transform target = null;
+
+    [Header("Gizmo")]
+    [SerializeField] Color sphereColor = Color.red;
+    [SerializeField] Color lineColor = Color.green;
+
+    private void Start()
+    {
+        target = brain.Target;
+    }
 
     public override bool MakeDecision()
     {
@@ -15,13 +24,13 @@ public class NearArea : AIDecision
     #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = sphereColor;
         Gizmos.DrawWireSphere(transform.position, distance);
 
         if(target == null)
             return;
 
-        Gizmos.color = Color.green;
+        Gizmos.color = lineColor;
         Gizmos.DrawLine(transform.position, target.position);
     }
     #endif

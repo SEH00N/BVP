@@ -3,8 +3,8 @@ using UnityEngine.AI;
 
 public class DroneAttackAction : AIAction
 {
-    [SerializeField] Transform target = null;
     [SerializeField] Transform firePos = null;
+    private Transform target = null;
 
     [Space(10f)]
     [SerializeField] float fireDelay = 1f;
@@ -22,9 +22,15 @@ public class DroneAttackAction : AIAction
         nav = brain.GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        target = brain.Target;
+    }
+
     public override void TakeAction()
     {
         nav.velocity = Vector3.Lerp(nav.velocity, Vector3.zero, stopSlip * Time.deltaTime);
+        nav.destination = target.position;
 
         currentTimer += Time.deltaTime;
         if(currentTimer < fireDelay)

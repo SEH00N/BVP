@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class ChaseAction : AIAction
 {
-    [SerializeField] Transform target = null;
+    private Transform target = null;
     private NavMeshAgent nav = null;
 
     protected override void Awake()
@@ -11,6 +11,11 @@ public class ChaseAction : AIAction
         base.Awake();
 
         nav = brain.GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
+    {
+        target = brain.Target;
     }
 
     public override void TakeAction()

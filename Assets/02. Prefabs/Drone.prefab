@@ -64,7 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fe6c9bb2e80a9428a726ca32e1db98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &6758765097802340306
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4d86b80200c4b4cb52ca41abd67229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   firePos: {fileID: 6758765098089187160}
   fireDelay: 1
   currentTimer: 0
@@ -228,7 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRadius: 10
   margin: 1
-  patrolTarget: {x: 0, y: 0, z: 0}
+  limitUnpatrolTime: 10
+  sphereColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &6758765098468512660
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 30
-  target: {fileID: 0}
+  sphereColor: {r: 0.54509807, g: 0, b: 1, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6758765098701210202
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 15
-  target: {fileID: 0}
+  sphereColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6758765099236215839
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 30
-  target: {fileID: 0}
+  sphereColor: {r: 0.54509807, g: 0, b: 1, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6758765099331112346
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 15
-  target: {fileID: 0}
+  sphereColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6758765099714402767
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7100200244533114153
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +715,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7100200244533405961}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.765923, y: 2.91, z: 18.831451}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -794,7 +797,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &7100200244526144215
 NavMeshAgent:
@@ -809,7 +812,7 @@ NavMeshAgent:
   m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

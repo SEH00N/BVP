@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnforcerAttackAction : AIAction
 {
@@ -8,9 +9,39 @@ public class EnforcerAttackAction : AIAction
     [SerializeField] float damage = 10f;
     [SerializeField] float startDelay = 1f;
 
+    [Space(10f)]
+    [SerializeField] float stopSlip = 5f;
+    [SerializeField] float attackDelay = 3f;
+    private float currentTimer = 0f;
+
+    private Transform target = null;
+    private NavMeshAgent nav = null;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        nav = brain.GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
+    {
+        target = brain.Target;
+    }
+
     public override void TakeAction()
     {
+        nav.velocity = Vector3.Lerp(nav.velocity, Vector3.zero, stopSlip * Time.deltaTime);
+        nav.destination = target.position;
+
+        currentTimer += Time.deltaTime;
+        if(currentTimer < attackDelay)
+            return;
+        
+        currentTimer = 0f;
+
         //애니메이션
+
         StartCoroutine(AttackCoroutine());
     }
 
