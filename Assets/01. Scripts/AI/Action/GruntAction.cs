@@ -13,7 +13,7 @@ public class GruntAction : AIAction
     [SerializeField] float gruntSpawnDelay = 0.5f;
 
     private int currentGruntCount = 0;
-    public int CurrentGruntCount => currentGruntCount;
+    public int CurrentGruntCount { get => currentGruntCount; set => currentGruntCount = value; }
     
     private float currentTimer = 0f;
 
@@ -48,7 +48,7 @@ public class GruntAction : AIAction
         if(gruntOnly)
         {
             Grunt grunt = PoolManager.Instance.Pop(temp) as Grunt;
-            grunt.Init(spawnPos);
+            grunt.Init(spawnPos, this);
         }
         else
             PoolManager.Instance.Pop(temp).transform.position = spawnPos;

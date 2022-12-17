@@ -5,6 +5,9 @@ public class Grunt : PoolableMono
 {
     [SerializeField] float spawnYDistance = 5f;
 
+    private GruntAction performer = null;
+    public GruntAction Performer => performer;
+
     private GruntHealth health = null;
     public GruntHealth Health {
         get {
@@ -19,13 +22,14 @@ public class Grunt : PoolableMono
     public override void Reset()
     {
         Health.CurrentHp = Health.MaxhHp;
-
     }   
 
-    public void Init(Vector3 position)
+    public void Init(Vector3 position, GruntAction performer)
     {
         position.y += spawnYDistance;
         transform.position = position;
+
+        this.performer = performer;
 
         if(nav == null) 
         {
