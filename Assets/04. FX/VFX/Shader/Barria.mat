@@ -58,8 +58,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 1.9999998, g: 0.5549738, b: 0, a: 0}
-    - _DotColor: {r: 0, g: 0.58, b: 2, a: 0}
+    - _BorderColor: {r: 1.9999998, g: 0.5549738, b: 0, a: 1}
+    - _DotColor: {r: 0, g: 0.58, b: 2, a: 1}
     - _DotTilling: {r: 8, g: 8, b: 0, a: 0}
     - _NoiseSpeed: {r: 0, g: 0.2, b: 0, a: 0}
     - _Vector2: {r: -5, g: 5, b: 0, a: 0}

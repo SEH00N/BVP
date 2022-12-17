@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "35354bbd989e41319e9c4b3a954fde0e"
+        },
+        {
+            "m_Id": "0cc1d31860b94ab7a25f907b1af6fcac"
         }
     ],
     "m_Keywords": [],
@@ -416,6 +419,35 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.BaseColor"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "0cc1d31860b94ab7a25f907b1af6fcac",
+    "m_Guid": {
+        "m_GuidSerialized": "6ad51812-8cb3-4132-82f9-a41b814e53ba"
+    },
+    "m_Name": "GrabPassTransparent",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "GrabPassTransparent",
+    "m_DefaultReferenceName": "_GrabPassTransparent",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -1237,10 +1269,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -213.00006103515626,
-            "y": 238.0,
+            "x": -330.0,
+            "y": 313.0,
             "width": 138.0,
-            "height": 77.00003051757813
+            "height": 77.0
         }
     },
     "m_Slots": [
@@ -1670,6 +1702,9 @@
         },
         {
             "m_Id": "35354bbd989e41319e9c4b3a954fde0e"
+        },
+        {
+            "m_Id": "0cc1d31860b94ab7a25f907b1af6fcac"
         }
     ]
 }
@@ -1708,7 +1743,7 @@
         "m_Id": "7144d16b99bd4841ae563b07ad87ec69"
     },
     "m_AllowMaterialOverride": true,
-    "m_SurfaceType": 0,
+    "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,

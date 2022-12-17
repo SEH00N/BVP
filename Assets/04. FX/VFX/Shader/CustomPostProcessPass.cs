@@ -41,10 +41,6 @@ public class CustomPostProcessPass : ScriptableRenderPass
     // The actual execution of the pass. This is where custom rendering occurs.
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
-    	// Skipping post processing rendering inside the scene View
-        if(renderingData.cameraData.isSceneViewCamera)
-            return;
-        
         // Here you get your materials from your custom class
         // (It's up to you! But here is how I did it)
         var materials = CustomPostProcessingMaterials.Instance;
