@@ -7,9 +7,12 @@ public class PatrolAction : AIAction
     [SerializeField] float margin = 1f;
     private NavMeshAgent nav = null;
 
-    [SerializeField] Vector3 patrolTarget = Vector3.zero;
+    private Vector3 patrolTarget = Vector3.zero;
     private Vector2 PlanePatrolTargetPosition => new Vector2(patrolTarget.x, patrolTarget.z);
     private Vector2 PlanePosition => new Vector2(transform.position.x, transform.position.z);
+
+    [SerializeField] float limitUnpatrolTime = 10f;
+    private float unpatrolTime = 0f;
 
     protected override void Awake()
     {
@@ -23,11 +26,17 @@ public class PatrolAction : AIAction
         patrolTarget = transform.position;
     }
 
+    private void Update()
+    {
+        unpatrolTime += Time.deltaTime;
+    }
+
     public override void TakeAction()
     {
-        if(InnerRange(PlanePatrolTargetPosition, margin))
+        if(InnerRange(PlanePatrolTargetPosition, margin) || unpatrolTime >= limitUnpatrolTime)
             patrolTarget = GetTargetPosition();
 
+        unpatrolTime = 0f;
         nav.destination = patrolTarget;
         nav.isStopped = false;
     }
