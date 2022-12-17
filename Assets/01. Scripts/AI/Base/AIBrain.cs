@@ -3,6 +3,7 @@ using UnityEngine;
 public class AIBrain : MonoBehaviour
 {
     [SerializeField] AIState currentState = null;
+    public Transform Target => DEFINE.Player;
 
     private void Start()
     {

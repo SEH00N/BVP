@@ -8,11 +8,24 @@ public class BoxBomb : PoolableMono, IDamageable
     [Range(0f, 1f), SerializeField] float groggyPercent = 0.3f;
     private Rigidbody rb = null;
 
+    [Space(10f)]
+    [SerializeField] float lifeTime = 10f;
+    private float curerntTimer = 0f;
+
     private BossProperty bossProperty = null;
 
-    private void Awake() //테스트 용도
+    public float CurrentHp { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    public float MaxhHp => throw new NotImplementedException();
+
+    private void Update()
     {
-        Reset();
+        curerntTimer += Time.deltaTime;
+        if(curerntTimer >= lifeTime)
+        {
+            //이펙트
+            PoolManager.Instance.Push(this);
+        }
     }
 
     public void OnDamage(float damage, Vector3 hitPos, Action callback = null)
