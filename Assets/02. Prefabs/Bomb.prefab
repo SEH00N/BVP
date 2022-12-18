@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7932870028371308025}
   - component: {fileID: 7932870028371308026}
   - component: {fileID: 7932870028371308021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859c86cf4ae83104dba8472db3a5faaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   moveSpeed: 30
   groggyPercent: 0.5
+  lifeTime: 100
 --- !u!33 &7932870028371308024
 MeshFilter:
   m_ObjectHideFlags: 0

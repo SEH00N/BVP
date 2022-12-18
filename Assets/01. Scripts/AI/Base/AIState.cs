@@ -33,7 +33,10 @@ public class AIState : MonoBehaviour
             if(result) //모든 조건이 참일 때
             {
                 if(transition.positiveResult != null)
+                {
                     brain.ChangeToState(transition.positiveResult); //positive 상태로 현재 상태 변경
+                    transition.onPositiveEvent?.Invoke();
+                }
             }
             else //참이 아닌 조건이 있을 때
             {

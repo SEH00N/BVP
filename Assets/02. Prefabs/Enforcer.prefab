@@ -83,6 +83,9 @@ MonoBehaviour:
   - {fileID: 8083367382678996320}
   positiveResult: {fileID: 0}
   negativeResult: {fileID: 8083367383076680915}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8083367382678996320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +150,9 @@ MonoBehaviour:
   - {fileID: 8083367382808631422}
   positiveResult: {fileID: 0}
   negativeResult: {fileID: 8083367384397052606}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8083367382808631422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +285,9 @@ MonoBehaviour:
   - {fileID: 8083367382865733680}
   positiveResult: {fileID: 8083367382862459965}
   negativeResult: {fileID: 0}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8083367382865733680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +418,9 @@ MonoBehaviour:
   - {fileID: 8083367383152484296}
   positiveResult: {fileID: 8083367384397052606}
   negativeResult: {fileID: 0}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8083367383152484296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,7 +1131,7 @@ GameObject:
   - component: {fileID: 8083367384339885331}
   - component: {fileID: 8083367384339885329}
   - component: {fileID: 8083367384339885330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enforcer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7988227430425438d8ea035b7a0ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 10
+  currentHp: 0
 --- !u!114 &8083367384339885326
 MonoBehaviour:
   m_ObjectHideFlags: 0

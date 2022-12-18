@@ -1,21 +1,27 @@
 using System;
 using UnityEngine;
 
-public class GruntHealth : MonoBehaviour, IDamageable
+public class BossHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] float maxHp = 100f;
     [SerializeField] float currentHp = 0f;
 
+    [Space(10f)] 
+    [SerializeField] AIBrain targetAI = null;
+
     private Animator animator = null;
-    private Grunt grunt = null;
 
     public float CurrentHp { get => currentHp; set => currentHp = Mathf.Clamp(value, 0f, maxHp); }
     public float MaxhHp => maxHp;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        grunt = GetComponent<Grunt>();
+        animator = transform.parent.GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        currentHp = maxHp;
     }
     
     public void OnDamage(float damage, Vector3 hitPos = default, Action callback = null)
@@ -31,9 +37,12 @@ public class GruntHealth : MonoBehaviour, IDamageable
 
     private void OnDie()
     {
-        grunt.Performer.CurrentGruntCount--;
         animator.SetBool("OnDie", true);
+        //이펙트
 
-        PoolManager.Instance.Push(grunt);
+        if(targetAI != null)
+            targetAI.enabled = true;
+        
+        Destroy(gameObject);
     }
 }

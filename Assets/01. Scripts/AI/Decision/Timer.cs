@@ -9,10 +9,11 @@ public class Timer : AIDecision
     {
         currentTimer += Time.deltaTime;
 
-        bool returnValue = (currentTimer >= targetDelay);
+        return currentTimer >= targetDelay;
+    }
 
-        currentTimer -= returnValue ? currentTimer : 0f;
-
-        return returnValue;
+    public void ResetTimer()
+    {
+        currentTimer = 0f;
     }
 }
