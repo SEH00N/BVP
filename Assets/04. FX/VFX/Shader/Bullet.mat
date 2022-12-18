@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1291169044562379610
+--- !u!114 &-5240754227997227719
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,28 +20,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Distortion
-  m_Shader: {fileID: -6465566751694194690, guid: 6ed8b8c9a802dff4199beb0cc30021d4,
+  m_Name: Bullet
+  m_Shader: {fileID: -6465566751694194690, guid: 350f97c2163feeb48a4cd32eedd487e0,
     type: 3}
-  m_ValidKeywords:
-  - _ALPHATEST_ON
-  - _SURFACE_TYPE_TRANSPARENT
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - DepthOnly
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _GrabPassTransparent:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -56,20 +48,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 1
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 0
-    - _DistortionAmount: 0.0069187926
-    - _DstBlend: 10
-    - _HeatDistortion: 0.39
-    - _NoiseSpeed: 0.0075889686
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SrcBlend: 5
-    - _Surface: 1
-    - _ZTest: 4
-    - _ZWrite: 0
-    - _ZWriteControl: 0
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0, g: 1.6390005, b: 2.98, a: 0}
   m_BuildTextureStacks: []
