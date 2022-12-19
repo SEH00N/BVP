@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.VFX;
 
 public class Sword : Weapon
 {
     [SerializeField] float startDelay, duration;
     [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
-
+    [SerializeField] List<Slash> slashes = new List<Slash>();
+    [SerializeField] GameObject slashParticle;
+    
     private Transform player = null;
     private Transform head = null;
     private Animator animator = null;
     private bool onDetermination = false;
+    private int attackCnt;
 
     private void Awake()
     {
@@ -23,16 +27,20 @@ public class Sword : Weapon
     public override void ActiveWeapon()
     {
         if(onDetermination) return;
-
+        if(attackCnt >= 3) return;
         animator.SetTrigger("OnSlash");
+        attackCnt++;
+        animator.SetInteger("AttackCnt",attackCnt);
         StartCoroutine(DeterminateCoroutine(startDelay, duration));
     }
 
     private IEnumerator DeterminateCoroutine(float startDelay, float duration)
     {
+        onDetermination = true;
         yield return new WaitForSeconds(startDelay);
 
-        onDetermination = true;
+        slashes[attackCnt-1].gameObject.transform.position = head.position;
+        slashes[attackCnt-1].gameObject.SetActive(true);
         Determinate();
 
         yield return new WaitForSeconds(duration);
