@@ -15,6 +15,6 @@ public class GroggyAction : AIAction
     {   
         property.GroggyPercentage = 0f;
 
-        Debug.Log("It's on groggy, do nothing");
+        // Debug.Log("It's on groggy, do nothing");
     }
 }

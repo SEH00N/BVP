@@ -8,7 +8,8 @@ public class Sword : Weapon
 {
     [SerializeField] float startDelay, duration;
     [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
-    [SerializeField] List<Slash> slashes = new List<Slash>();
+    [SerializeField] List<float> delaies = new List<float>();
+    [SerializeField] List<float> durations = new List<float>();
     [SerializeField] GameObject slashParticle;
 
     [Header("Cam Shake")]
@@ -25,7 +26,8 @@ public class Sword : Weapon
     private Transform head = null;
     private Animator animator = null;
     private bool onDetermination = false;
-    private int attackCnt;
+    [SerializeField] int attackCnt;
+    private bool readyToAttack = false;
 
     private void Awake()
     {
@@ -35,13 +37,11 @@ public class Sword : Weapon
     }
 
     public override void ActiveWeapon()
-    {
-        if(onDetermination) return;
-        if(attackCnt >= 3) return;
+    {     
+        if(onDetermination)
+            attackCnt = (attackCnt+1) % delaies.Count;
         animator.SetTrigger("OnSlash");
-        attackCnt++;
-        animator.SetInteger("AttackCnt",attackCnt);
-        StartCoroutine(DeterminateCoroutine(startDelay, duration));
+        StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
     }
 
     private IEnumerator DeterminateCoroutine(float startDelay, float duration)
@@ -49,8 +49,6 @@ public class Sword : Weapon
         onDetermination = true;
         yield return new WaitForSeconds(startDelay);
 
-        slashes[attackCnt-1].gameObject.transform.position = head.position;
-        slashes[attackCnt-1].gameObject.SetActive(true);
         Determinate();
 
         yield return new WaitForSeconds(duration);
