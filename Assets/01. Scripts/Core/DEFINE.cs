@@ -57,4 +57,13 @@ public class DEFINE
             return cmMainCam;
         }
     }
+
+    private static Core core = null;
+    public static Core Core {
+        get {
+            if(core == null)    
+                core = GameObject.Find("Core").GetComponent<Core>();
+            return core;
+        }
+    }
 }

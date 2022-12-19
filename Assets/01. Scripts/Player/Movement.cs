@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     private Rigidbody rb = null;
 
     private float currentVelocity = 0f;
+    public float CurrentVelocity { get => currentVelocity; set => currentVelocity = value; }
+    public bool onBoost = false;
 
     private Vector3 currentDir = Vector3.zero;
     private Vector2 CurrentPlaneVector => new Vector2(currentDir.x, currentDir.z);
@@ -23,6 +25,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(onBoost) return;
+        
         Vector3 dir = ((currentDir.x * transform.right) + (currentDir.z * transform.forward)) * currentVelocity;
 
         dir.y = Mathf.Clamp(rb.velocity.y, movementSO.gravityClamp.x, movementSO.gravityClamp.y);
@@ -56,7 +60,8 @@ public class Movement : MonoBehaviour
             currentDir = input;
         }
 
-        currentVelocity = CalculateSpeed(input);
+        if(!onBoost)
+            currentVelocity = CalculateSpeed(input);
     }
 
     private float CalculateSpeed(Vector3 input)
