@@ -277,6 +277,9 @@ MonoBehaviour:
   - {fileID: 6758765098468512658}
   positiveResult: {fileID: 0}
   negativeResult: {fileID: 6758765098328565222}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765098468512658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +344,9 @@ MonoBehaviour:
   - {fileID: 6758765098701210200}
   positiveResult: {fileID: 6758765097802340305}
   negativeResult: {fileID: 0}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765098701210200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +411,9 @@ MonoBehaviour:
   - {fileID: 6758765099236215837}
   positiveResult: {fileID: 6758765097737348587}
   negativeResult: {fileID: 0}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765099236215837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +478,9 @@ MonoBehaviour:
   - {fileID: 6758765099331112344}
   positiveResult: {fileID: 0}
   negativeResult: {fileID: 6758765097737348587}
+  onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765099331112344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,7 +713,8 @@ GameObject:
   - component: {fileID: 7100200244526144200}
   - component: {fileID: 7100200244526144214}
   - component: {fileID: 7100200244526144215}
-  m_Layer: 0
+  - component: {fileID: 222687994226247925}
+  m_Layer: 10
   m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7988227430425438d8ea035b7a0ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 10
+  currentHp: 0
 --- !u!114 &7100200244526144200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +836,19 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &222687994226247925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100200244533405961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.3, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7100200244533405963
 GameObject:
   m_ObjectHideFlags: 0
