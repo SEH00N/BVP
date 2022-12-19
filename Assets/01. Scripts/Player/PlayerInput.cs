@@ -4,11 +4,13 @@ public class PlayerInput : MonoBehaviour
 {
     private Movement movement = null;
     private PlayerRotator rotator = null;
+    private Animator anim;
 
     private void Awake()
     {
         movement = GetComponent<Movement>();
         rotator = GetComponent<PlayerRotator>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,7 +39,7 @@ public class PlayerInput : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
+        anim.SetFloat("Speed",new Vector2(horizontal,vertical).magnitude);
         movement.MoveTo(new Vector3(horizontal, 0, vertical));
     }
 }

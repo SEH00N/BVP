@@ -60,10 +60,10 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 0
-    - _DistortionAmount: 0.0052993773
+    - _DistortionAmount: 0.49994832
     - _DstBlend: 10
     - _HeatDistortion: 0.39
-    - _NoiseSpeed: 0.0056925453
+    - _NoiseSpeed: 3.999225
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
