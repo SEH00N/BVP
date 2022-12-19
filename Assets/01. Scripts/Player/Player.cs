@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Animator anim;
+    public Animator Anim{
+    get {
+            if(anim == null)
+                anim = GetComponent<Animator>();
+            return anim;
+        }
+    }
     private Movement movement = null;
     public Movement Movement {
         get {
