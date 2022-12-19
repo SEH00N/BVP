@@ -25,9 +25,9 @@ public class Sword : Weapon
     private Transform player = null;
     private Transform head = null;
     private Animator animator = null;
-    private bool onDetermination = false;
-    [SerializeField] int attackCnt;
-    private bool readyToAttack = false;
+    private int attackCnt;
+    private bool isAttacking = false;
+    private bool nextAttack = false;
 
     private void Awake()
     {
@@ -37,23 +37,39 @@ public class Sword : Weapon
     }
 
     public override void ActiveWeapon()
-    {     
-        if(onDetermination)
-            attackCnt = (attackCnt+1) % delaies.Count;
-        animator.SetTrigger("OnSlash");
-        StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
+    {
+        if(!isAttacking) //공격 중이 아닐 때 (첫 공격일 때)
+        {
+            attackCnt = 0;
+            animator.SetTrigger("OnSlash");
+            StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
+        }
+        else if(!nextAttack) {
+            animator.SetTrigger("OnSlash");
+            nextAttack = true;
+        }
     }
 
     private IEnumerator DeterminateCoroutine(float startDelay, float duration)
     {
-        onDetermination = true;
+        isAttacking = true;
         yield return new WaitForSeconds(startDelay);
 
         Determinate();
 
         yield return new WaitForSeconds(duration);
 
-        onDetermination = false;
+        if(nextAttack && attackCnt < delaies.Count - 1)
+        {
+            attackCnt++;
+            nextAttack = false;
+            StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
+        } 
+        else
+        {
+            isAttacking = false;
+            nextAttack = false;
+        }
     }
 
     private void Determinate()

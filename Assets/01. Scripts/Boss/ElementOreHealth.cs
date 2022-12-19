@@ -35,7 +35,7 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
             //플레이어 데미지 받기
         } 
 
-        //이펙트
         gameObject.SetActive(false);
+        //이펙트
     }
 }

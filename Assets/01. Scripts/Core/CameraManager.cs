@@ -23,6 +23,12 @@ public class CameraManager : MonoBehaviour
         perlin = cmMainCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
+    private void Start()
+    {
+        perlin.m_AmplitudeGain = 0f;
+        perlin.m_FrequencyGain = 0f;
+    }
+
     public void ShakeCam(float duration, float power, float frequency)
     {
         if(onShake) return;
