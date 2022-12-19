@@ -6,8 +6,8 @@ public class CoreActivator : MonoBehaviour
 
     public void ActiveCore()
     {
-        Ring[] rings = ringObject.GetComponentsInChildren<Ring>();
-        Ring targetRing = rings[Random.Range(0, rings.Length)];
+        RingPortal[] rings = ringObject.GetComponentsInChildren<RingPortal>();
+        RingPortal targetRing = rings[Random.Range(0, rings.Length)];
 
         DEFINE.Core.SetColor(targetRing.ringColor);
     }
