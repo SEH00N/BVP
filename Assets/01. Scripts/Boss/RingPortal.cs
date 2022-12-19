@@ -14,4 +14,10 @@ public class RingPortal : MonoBehaviour
             ore.Reset(this);
         }
     }
+
+    public void Die()
+    {
+        //너가 해라 김민수
+        transform.parent.parent.parent.GetComponent<BossHealth>()?.OnDamage(40f);
+    }
 }
