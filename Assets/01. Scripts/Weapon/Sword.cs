@@ -8,6 +8,16 @@ public class Sword : Weapon
     [SerializeField] float startDelay, duration;
     [SerializeField] List<BoxCollider> colliders = new List<BoxCollider>();
 
+    [Header("Cam Shake")]
+    [SerializeField] float frequency = 1f;
+    [SerializeField] float defaultPower = 3f;
+    [SerializeField] float additionalFactor = 0.5f;
+    [SerializeField] float shakeDuration = 0.3f;
+
+    [Header("Time")]
+    [SerializeField] float delayDuration = 0.05f;
+    [SerializeField] float delayAmount = 0.4f;
+
     private Transform player = null;
     private Transform head = null;
     private Animator animator = null;
@@ -57,6 +67,12 @@ public class Sword : Weapon
                     }
                 }
             }
+        }
+
+        if(ids.Count > 0)
+        {
+            CameraManager.Instance.ShakeCam(shakeDuration, defaultPower + (ids.Count * additionalFactor), frequency);
+            TimeManager.Instance.TimeDelay(delayAmount, delayDuration);
         }
     }
 }
