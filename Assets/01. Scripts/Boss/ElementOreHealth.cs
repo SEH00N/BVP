@@ -20,6 +20,13 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
     [SerializeField] Transform maxPos = null;
     [SerializeField] Transform backPosition = null;
 
+    private Player player = null;
+
+    private void Awake()
+    {
+        player = DEFINE.Player.GetComponent<Player>();
+    }
+
     public void Reset(RingPortal ring) // 포탈 탈 때 실행시켜줘야 됨
     {
         gameObject.SetActive(true);
@@ -32,7 +39,11 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
     private void SpawnGrunt()
     {
         for(int i = 0; i < gruntCount; i ++)
-            PoolManager.Instance.Pop(grunts[Random.Range(0, grunts.Count)]).transform.position = GetRandomPos();
+        {
+            Grunt randGrunt = grunts[Random.Range(0, grunts.Count)];
+            randGrunt = PoolManager.Instance.Pop(randGrunt) as Grunt;
+            randGrunt.Init(GetRandomPos());
+        }
     }
 
     private Vector3 GetRandomPos()
@@ -58,18 +69,13 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
         decision.isEnd = true;
 
         if(DEFINE.Core.currentColor == oreRing.ringColor)
-        {
-            //링 부수기
-        } else {
-            //플레이어 데미지 받기
-        } 
+            oreRing.Die();
+        else
+            player.PlayerHealth?.OnDamage(10f);
 
         gameObject.SetActive(false);
-        //이펙트
-    }
 
-    private void OutPortal()
-    {
+        //이펙트
         DEFINE.Player.position = backPosition.position;
     }
 }

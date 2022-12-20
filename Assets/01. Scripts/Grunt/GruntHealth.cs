@@ -31,7 +31,8 @@ public class GruntHealth : MonoBehaviour, IDamageable
 
     private void OnDie()
     {
-        grunt.Performer.CurrentGruntCount--;
+        if(grunt.Performer != null)
+            grunt.Performer.CurrentGruntCount--;
         animator.SetBool("OnDie", true);
 
         PoolManager.Instance.Pop("Boom").transform.position = transform.position;

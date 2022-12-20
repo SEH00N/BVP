@@ -37,4 +37,16 @@ public class Grunt : PoolableMono
             nav.enabled = true;
         }
     }
+
+    public void Init(Vector3 position)
+    {
+        position.y += spawnYDistance;
+        transform.position = position;
+
+        if(nav == null) 
+        {
+            nav = GetComponent<NavMeshAgent>();
+            nav.enabled = true;
+        }
+    }
 }

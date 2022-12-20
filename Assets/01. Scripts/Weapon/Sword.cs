@@ -45,6 +45,7 @@ public class Sword : Weapon
             StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
         }
         else if(!nextAttack) {
+            Debug.Log("Ready to nextattack");
             animator.SetTrigger("OnSlash");
             nextAttack = true;
         }
