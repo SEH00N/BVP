@@ -19,6 +19,7 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
     [SerializeField] Transform minPos = null;
     [SerializeField] Transform maxPos = null;
     [SerializeField] Transform backPosition = null;
+    [SerializeField] Animator bossAnimator;
 
     private Player player = null;
 
@@ -73,9 +74,9 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
         else
             player.PlayerHealth?.OnDamage(10f);
 
+        bossAnimator.SetTrigger("PortalReset");
         gameObject.SetActive(false);
 
-        //이펙트
         DEFINE.Player.position = backPosition.position;
     }
 }
