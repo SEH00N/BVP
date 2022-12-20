@@ -24,6 +24,7 @@ public class BoxBomb : PoolableMono, IDamageable
         if(curerntTimer >= lifeTime)
         {
             //이펙트
+            PoolManager.Instance.Pop("Boom").transform.position = transform.position;
             PoolManager.Instance.Push(this);
         }
     }
@@ -52,6 +53,7 @@ public class BoxBomb : PoolableMono, IDamageable
                 id.OnDamage(damage);
         }
 
+        PoolManager.Instance.Pop("Boom").transform.position = transform.position;
         PoolManager.Instance.Push(this);
     }
 
@@ -61,5 +63,6 @@ public class BoxBomb : PoolableMono, IDamageable
             rb = GetComponent<Rigidbody>();
 
         rb.velocity = Vector3.zero;
+        curerntTimer = 0f;
     }
 }

@@ -59,17 +59,15 @@ public class Sword : Weapon
 
         yield return new WaitForSeconds(duration);
 
-        if(nextAttack && attackCnt < delaies.Count - 1)
+        if(nextAttack)
         {
-            attackCnt++;
-            nextAttack = false;
+            attackCnt = (attackCnt + 1) % delaies.Count;
             StartCoroutine(DeterminateCoroutine(delaies[attackCnt], durations[attackCnt]));
-        } 
-        else
-        {
-            isAttacking = false;
-            nextAttack = false;
         }
+        else
+            isAttacking = false;
+        
+        nextAttack = false;
     }
 
     private void Determinate()
