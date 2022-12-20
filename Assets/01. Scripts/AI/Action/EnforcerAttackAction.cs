@@ -50,11 +50,15 @@ public class EnforcerAttackAction : AIAction
         yield return new WaitForSeconds(startDelay);
 
         Collider[] detectedTargets = Physics.OverlapBox(
-            attackRange.bounds.center, 
-            attackRange.size, 
-            attackRange.transform.localRotation, 
+            attackRange.transform.position, 
+            attackRange.transform.lossyScale, 
+            attackRange.transform.rotation, 
             DEFINE.PlayerLayer
         );
+
+        Debug.Log(attackRange.transform.lossyScale);
+
+        Debug.Log(detectedTargets.Length);
 
         List<IDamageable> targets = new List<IDamageable>();
         foreach(Collider c in detectedTargets)
