@@ -4,10 +4,12 @@ public class AIBrain : MonoBehaviour
 {
     [SerializeField] AIState currentState = null;
     public Transform Target => DEFINE.Player;
+    public Animator anim;
 
     private void Start()
     {
-        
+        Debug.Log(transform.parent.name);
+        anim = GetComponentInParent<Animator>();
     }
 
     private void Update()
