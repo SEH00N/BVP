@@ -34,7 +34,6 @@ public class GruntHealth : MonoBehaviour, IDamageable
         grunt.Performer.CurrentGruntCount--;
         animator.SetBool("OnDie", true);
 
-        PoolManager.Instance.Pop("Boom").transform.position = transform.position;
         PoolManager.Instance.Push(grunt);
     }
 }

@@ -63,9 +63,4 @@ public class GruntAction : AIAction
 
         return randPos;
     }
-
-    public void ClearGruntCount()
-    {
-        currentGruntCount = 0;
-    }
 }
