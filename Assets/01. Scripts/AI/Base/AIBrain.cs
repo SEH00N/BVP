@@ -8,7 +8,6 @@ public class AIBrain : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(transform.parent.name);
         anim = GetComponentInParent<Animator>();
     }
 
