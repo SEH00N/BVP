@@ -17,7 +17,9 @@ public class RingPortal : MonoBehaviour
 
     public void Die()
     {
-        //너가 해라 김민수
+        Particle portalDestroy = PoolManager.Instance.Pop("PortalDestroy") as Particle;
+        portalDestroy.transform.position = transform.position;
+        transform.parent.gameObject.SetActive(false);
         transform.parent.parent.parent.GetComponent<BossHealth>()?.OnDamage(40f);
     }
 }

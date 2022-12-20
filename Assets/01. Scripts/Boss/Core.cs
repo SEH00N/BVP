@@ -29,7 +29,8 @@ public class Core : MonoBehaviour, IDamageable
 
     public void SetColor(Color targetColor)
     {
+        coreMaterial = GetComponent<MeshRenderer>().material;
         currentColor = targetColor;
-        coreMaterial.SetColor("", currentColor);
+        coreMaterial.SetColor("_Color", currentColor);
     }
 }
