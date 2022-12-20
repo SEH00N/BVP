@@ -15,7 +15,7 @@ public class Groggy : AIDecision
     {
         return (property.GroggyPercentage >= 1f);
     }
-    public void BoxAnimGrog(){
-        brain.anim.SetTrigger("BoxGroggy");
+    public void BoxAnimGrog(bool toggle){
+        brain.anim.SetBool("BoxGroggy",toggle);
     }
 }
