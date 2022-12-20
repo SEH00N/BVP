@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDamage(float damage, Vector3 hitPos = default, Action callback = null)
     {
         currentHp -= damage;
+        Debug.Log("사람이 아프다 이말이야");
 
         if(currentHp <= 0f)
         {
@@ -37,6 +38,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        Debug.Log("죽었다 머저리야");
         //죽었다 머저리야
     }
 }

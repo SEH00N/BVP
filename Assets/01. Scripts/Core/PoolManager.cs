@@ -15,7 +15,7 @@ public class PoolManager : MonoBehaviour
 
     [SerializeField] Transform parent = null;
     [SerializeField] List<PoolableMono> poolingList = new List<PoolableMono>();
-    public Dictionary<string, Pool<PoolableMono>> Pools { get; private set; }= new Dictionary<string, Pool<PoolableMono>>();
+    private Dictionary<string, Pool<PoolableMono>> pools = new Dictionary<string, Pool<PoolableMono>>();
 
     private void Awake()
     {
@@ -30,26 +30,26 @@ public class PoolManager : MonoBehaviour
     {
         Pool<PoolableMono> pool = new Pool<PoolableMono>(_prefab, _parent);
         
-        if(Pools.ContainsKey(_prefab.name))
+        if(pools.ContainsKey(_prefab.name))
         {
             Debug.LogWarning($"{_prefab.name} | Same Name of Poolable Object Already Existed at Pools, Returning");
             return;
         }
 
-        Pools.Add(_prefab.name, pool);
+        pools.Add(_prefab.name, pool);
     }
 
     public PoolableMono Pop(string _prefabName)
     {
         PoolableMono obj = null;
 
-        if(!Pools.ContainsKey(_prefabName))
+        if(!pools.ContainsKey(_prefabName))
         {
             Debug.LogWarning($"{_prefabName} | Current Name of Poolable Object Doesn't Exist at Pools, Returning Nulll");
             return null;
         }
 
-        obj = Pools[_prefabName].Pop();
+        obj = pools[_prefabName].Pop();
         obj.transform.SetParent(null);
         SceneLoader.Instance.RemoveDontDestroyOnLoad(obj.gameObject);
         obj.Reset();
@@ -61,13 +61,13 @@ public class PoolManager : MonoBehaviour
     {
         PoolableMono obj = null;
 
-        if(!Pools.ContainsKey(prefab.name))
+        if(!pools.ContainsKey(prefab.name))
         {
             Debug.LogWarning($"{prefab.name} | Current Name of Poolable Object Doesn't Exist at Pools, Returning Nulll");
             return null;
         }
 
-        obj = Pools[prefab.name].Pop();
+        obj = pools[prefab.name].Pop();
         obj.transform.SetParent(null);
         SceneLoader.Instance.RemoveDontDestroyOnLoad(obj.gameObject);
         obj.Reset();
@@ -79,13 +79,13 @@ public class PoolManager : MonoBehaviour
     {
         PoolableMono obj = null;
 
-        if(!Pools.ContainsKey(_prefabName))
+        if(!pools.ContainsKey(_prefabName))
         {
             Debug.LogWarning($"{_prefabName} | Current Name of Poolable Object Doesn't Exist at Pools, Returning Nulll");
             return null;
         }
 
-        obj = Pools[_prefabName].Pop();
+        obj = pools[_prefabName].Pop();
         obj.transform.SetParent(null);
         SceneLoader.Instance.RemoveDontDestroyOnLoad(obj.gameObject);
         obj.Reset();
@@ -98,7 +98,7 @@ public class PoolManager : MonoBehaviour
 
     public void Push(PoolableMono _obj)
     {
-        if(!Pools.ContainsKey(_obj.name))
+        if(!pools.ContainsKey(_obj.name))
         {
             Debug.LogWarning($"{_obj.name} | Current Name of Pool Doesn't Exist at Pools, Destroy Object");
             Destroy(_obj.gameObject);
@@ -106,6 +106,6 @@ public class PoolManager : MonoBehaviour
         }
 
         _obj.transform.SetParent(parent);
-        Pools[_obj.name].Push(_obj);
+        pools[_obj.name].Push(_obj);
     }
 }
