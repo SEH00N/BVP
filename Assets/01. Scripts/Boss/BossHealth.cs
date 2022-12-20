@@ -42,7 +42,7 @@ public class BossHealth : MonoBehaviour, IDamageable
 
         if(targetAI != null)
             targetAI.enabled = true;
-        
+        animator.SetTrigger("NextPhase");
         Destroy(gameObject);
     }
 }
