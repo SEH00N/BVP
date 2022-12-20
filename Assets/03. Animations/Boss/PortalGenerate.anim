@@ -3131,7 +3131,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 4.983333
-    functionName: 
+    functionName: ActiveCore
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

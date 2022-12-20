@@ -74,10 +74,9 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
         else
             player.PlayerHealth?.OnDamage(10f);
 
+        bossAnimator.SetTrigger("PortalReset");
         gameObject.SetActive(false);
 
-        //이펙트
         DEFINE.Player.position = backPosition.position;
-        bossAnimator.SetTrigger("PortalReset");
     }
 }
