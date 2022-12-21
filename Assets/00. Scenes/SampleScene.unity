@@ -80680,7 +80680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32058a2c91848842b9e611b871beb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 10
 --- !u!1001 &1668919518
 PrefabInstance:
   m_ObjectHideFlags: 0

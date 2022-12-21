@@ -50,6 +50,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log("죽었다 머저리야");
+        SceneLoader.Instance.LoadAsync("Gameover", () => GameManager.Instance.CursorActive = true );
         //죽었다 머저리야
     }
 
