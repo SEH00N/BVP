@@ -6,6 +6,7 @@ public class RingPortal : MonoBehaviour
     [SerializeField] Transform portalRoom = null;
     [SerializeField] ElementOreHealth ore = null;
     [SerializeField] Transform light = null;
+    [SerializeField] MeshRenderer meshRenderer;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -16,6 +17,7 @@ public class RingPortal : MonoBehaviour
             }
             other.transform.position = portalRoom.position;
             ore.Reset(this);
+            meshRenderer.materials[0].SetColor("_Color",ringColor);
         }
     }
 
