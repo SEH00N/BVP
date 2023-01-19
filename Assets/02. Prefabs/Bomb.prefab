@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   moveSpeed: 30
-  groggyPercent: 0.5
+  groggyPercent: 0.3
   lifeTime: 100
 --- !u!135 &7932870028371308026
 SphereCollider:

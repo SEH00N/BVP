@@ -43,7 +43,7 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
         {
             Grunt randGrunt = grunts[Random.Range(0, grunts.Count)];
             randGrunt = PoolManager.Instance.Pop(randGrunt) as Grunt;
-            randGrunt.Init(GetRandomPos());
+            randGrunt.Init(GetRandomPos(), transform);
         }
     }
 
@@ -78,5 +78,8 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
         gameObject.SetActive(false);
 
         DEFINE.Player.position = backPosition.position;
+
+        while(transform.childCount > 0)
+            PoolManager.Instance.Push(transform.GetChild(0).GetComponent<Grunt>());
     }
 }
