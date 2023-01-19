@@ -8,4 +8,7 @@ public class GruntClear : AIDecision
     {
         return gruntAction.CurrentGruntCount <= 0;
     }
+    public void OpenShell(bool toggle){
+        brain.anim.SetBool("OpenShell",toggle);
+    }
 }

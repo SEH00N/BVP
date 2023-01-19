@@ -11,4 +11,5 @@ public class AITransition : MonoBehaviour
 
     [Space(10f)]
     public UnityEvent onPositiveEvent;
+    public UnityEvent onNegativeEvent;
 }

@@ -280,6 +280,9 @@ MonoBehaviour:
   onPositiveEvent:
     m_PersistentCalls:
       m_Calls: []
+  onNegativeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765098468512658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +348,9 @@ MonoBehaviour:
   positiveResult: {fileID: 6758765097802340305}
   negativeResult: {fileID: 0}
   onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onNegativeEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6758765098701210200
@@ -414,6 +420,9 @@ MonoBehaviour:
   onPositiveEvent:
     m_PersistentCalls:
       m_Calls: []
+  onNegativeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6758765099236215837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +488,9 @@ MonoBehaviour:
   positiveResult: {fileID: 0}
   negativeResult: {fileID: 6758765097737348587}
   onPositiveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onNegativeEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6758765099331112344
@@ -844,7 +856,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7100200244533405961}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8eaaee890fc2bce4a9e312b398cbdda2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -861,7 +873,7 @@ GameObject:
   - component: {fileID: 7100200244533114155}
   - component: {fileID: 7100200244536538379}
   - component: {fileID: 7100200244535408587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PA_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
