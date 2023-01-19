@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using System;
 using UnityEngine;
 
@@ -33,6 +34,9 @@ public class GruntHealth : MonoBehaviour, IDamageable
     {
         if(grunt.Performer != null)
             grunt.Performer.CurrentGruntCount--;
+
+        grunt.Nav.enabled = false;
+        
         animator.SetBool("OnDie", true);
 
         PoolManager.Instance.Pop("Boom").transform.position = transform.position;

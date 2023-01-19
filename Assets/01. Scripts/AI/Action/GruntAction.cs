@@ -48,6 +48,7 @@ public class GruntAction : AIAction
         if(gruntOnly)
         {
             Grunt grunt = PoolManager.Instance.Pop(temp) as Grunt;
+            Debug.Log(spawnPos + " in grunt action");
             grunt.Init(spawnPos, this);
         }
         else

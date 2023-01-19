@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class Core : MonoBehaviour, IDamageable
 {
@@ -30,6 +31,9 @@ public class Core : MonoBehaviour, IDamageable
     private void OnDie()
     {
         //엔딩
+        Sequence seq = DOTween.Sequence();
+        seq.AppendInterval(1f);
+        seq.AppendCallback(() => SceneLoader.Instance.LoadAsync("End"));
     }
 
     public void SetColor(Color targetColor)

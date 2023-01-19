@@ -67,19 +67,18 @@ public class ElementOreHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        decision.isEnd = true;
+        DEFINE.Player.position = backPosition.position;
+
+        while(transform.childCount > 0)
+            transform.GetChild(0).GetComponent<Grunt>().Health.OnDamage(10000000f);
 
         if(DEFINE.Core.currentColor == oreRing.ringColor)
             oreRing.Die();
         else
             player.PlayerHealth?.OnDamage(10f);
-
+        
+        decision.isEnd = true;
         bossAnimator.SetTrigger("PortalReset");
         gameObject.SetActive(false);
-
-        DEFINE.Player.position = backPosition.position;
-
-        while(transform.childCount > 0)
-            PoolManager.Instance.Push(transform.GetChild(0).GetComponent<Grunt>());
     }
 }

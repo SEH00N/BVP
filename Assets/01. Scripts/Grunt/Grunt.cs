@@ -18,6 +18,7 @@ public class Grunt : PoolableMono
     }
 
     private NavMeshAgent nav = null;
+    public NavMeshAgent Nav => nav;
 
     public override void Reset()
     {
@@ -32,10 +33,10 @@ public class Grunt : PoolableMono
         this.performer = performer;
 
         if(nav == null) 
-        {
             nav = GetComponent<NavMeshAgent>();
-            nav.enabled = true;
-        }
+
+        nav.enabled = true;
+        nav.ResetPath();
     }
 
     public void Init(Vector3 position, Transform parent = null)
@@ -44,10 +45,9 @@ public class Grunt : PoolableMono
         this.transform.position = position;
 
         if(nav == null) 
-        {
             nav = GetComponent<NavMeshAgent>();
-            nav.enabled = true;
-        }
+        
+        nav.enabled = true;
         
         if(parent != null)
             this.transform.SetParent(parent);
