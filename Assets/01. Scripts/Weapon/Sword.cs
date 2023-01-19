@@ -77,7 +77,7 @@ public class Sword : Weapon
 
         foreach(BoxCollider c in colliders)
         {
-            foreach(Collider cc in Physics.OverlapBox(c.bounds.center, c.size, c.transform.rotation, DEFINE.EnemyLayer))
+            foreach(Collider cc in Physics.OverlapBox(c.bounds.center, c.size, c.transform.rotation, DEFINE.EnemyLayer | DEFINE.BossLayer))
             {
                 if(cc.TryGetComponent<IDamageable>(out IDamageable id))
                 {

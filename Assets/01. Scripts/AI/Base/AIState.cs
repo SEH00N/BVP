@@ -41,7 +41,10 @@ public class AIState : MonoBehaviour
             else //참이 아닌 조건이 있을 때
             {
                 if(transition.negativeResult != null) 
+                {
                     brain.ChangeToState(transition.negativeResult); //negative 싱태로 현재 상태 변경
+                    transition.onNegativeEvent?.Invoke();
+                }
             }
         }
     }
