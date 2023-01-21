@@ -25,6 +25,12 @@ public class TimeManager : MonoBehaviour
         StartCoroutine(TimeResetCoroutine(durtion));
     }
 
+    public void Stop()
+    {
+        StopAllCoroutines();
+        Time.timeScale = 1f;
+    }
+
     private IEnumerator TimeResetCoroutine(float duration)
     {
         yield return new WaitForSecondsRealtime(duration);
